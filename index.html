@@ -1,0 +1,1066 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Her Little World 💕</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffe5ef, #fff7fa, #f0e7ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 560px;
+    background: rgba(255,255,255,0.97);
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.heart {
+    font-size: 58px;
+    animation: beat 1.5s infinite;
+}
+
+@keyframes beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+h1 {
+    color: #e75480;
+    margin: 15px 0 10px;
+}
+
+.subtitle {
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+button {
+    border: none;
+    background: linear-gradient(135deg, #e75480, #c94f9d);
+    color: white;
+    padding: 14px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(231,84,128,0.3);
+}
+
+.question-number {
+    color: #e75480;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: #eee;
+    border-radius: 10px;
+    margin: 15px 0 25px;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #e75480, #c94f9d);
+    border-radius: 10px;
+    transition: 0.4s;
+}
+
+.question {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #f1d6df;
+    border-radius: 15px;
+    outline: none;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+input[type="text"]:focus {
+    border-color: #e75480;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.back {
+    background: #ddd;
+    color: #555;
+}
+
+.warning {
+    color: #e75480;
+    font-size: 14px;
+    margin: 10px 0 15px;
+    display: none;
+    line-height: 1.5;
+}
+
+/* Photo Upload */
+
+.upload-box {
+    border: 2px dashed #e75480;
+    border-radius: 18px;
+    padding: 25px 15px;
+    background: #fff7fa;
+    margin-bottom: 20px;
+}
+
+.upload-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.upload-text {
+    color: #777;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #e75480, #c94f9d);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 22px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.photo-preview {
+    display: none;
+    margin-top: 18px;
+}
+
+.photo-preview img {
+    width: 100%;
+    max-height: 330px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.photo-name {
+    margin-top: 8px;
+    color: #888;
+    font-size: 13px;
+    word-break: break-word;
+}
+
+/* Love Slider */
+
+.love-box {
+    background: linear-gradient(135deg, #fff0f5, #f7edff);
+    padding: 25px 18px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.love-percent {
+    font-size: 52px;
+    color: #e75480;
+    font-weight: bold;
+    margin: 8px 0 15px;
+}
+
+.love-slider {
+    width: 100%;
+    accent-color: #e75480;
+    cursor: pointer;
+}
+
+.slider-label {
+    margin-top: 12px;
+    color: #777;
+}
+
+/* Result */
+
+.profile {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.profile-item {
+    background: #fff5f8;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 14px;
+    line-height: 1.5;
+}
+
+.profile-item strong {
+    color: #e75480;
+}
+
+.result-photo {
+    margin-top: 12px;
+}
+
+.result-photo img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.photo-title {
+    color: #e75480;
+    font-weight: bold;
+    margin: 18px 0 8px;
+}
+
+.whatsapp {
+    width: 100%;
+    margin-top: 20px;
+    background: #25D366;
+}
+
+.whatsapp:hover {
+    box-shadow: 0 7px 18px rgba(37,211,102,0.3);
+}
+
+.restart {
+    width: 100%;
+    margin-top: 12px;
+    background: #ddd;
+    color: #555;
+}
+
+.small {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #999;
+    line-height: 1.5;
+}
+
+.love-message {
+    margin-top: 20px;
+    padding: 18px;
+    background: linear-gradient(135deg, #fff0f5, #f8edff);
+    border-radius: 18px;
+    line-height: 1.7;
+}
+
+.photo-note {
+    background: #fff8e8;
+    color: #777;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    margin-top: 15px;
+    line-height: 1.5;
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HOME ================= -->
+
+    <div id="home">
+
+        <div class="heart">💕</div>
+
+        <h1>Her Little World</h1>
+
+        <p class="subtitle">
+            A tiny little place to discover your
+            favorite things, dreams and feelings. 🌸
+        </p>
+
+        <button onclick="startQuiz()">
+            Let's Begin 💗
+        </button>
+
+        <p class="small">
+            Answer honestly... someone is waiting to know you better. 😌❤️
+        </p>
+
+    </div>
+
+
+    <!-- ================= QUIZ ================= -->
+
+    <div id="quiz" class="hidden">
+
+        <div class="question-number" id="questionNumber"></div>
+
+        <div class="progress-container">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="question" id="question"></div>
+
+        <div id="answerArea"></div>
+
+        <p id="warning" class="warning"></p>
+
+        <div class="navigation">
+
+            <button class="back" onclick="previousQuestion()">
+                ← Back
+            </button>
+
+            <button onclick="nextQuestion()">
+                Next →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= RESULT ================= -->
+
+    <div id="result" class="hidden">
+
+        <div class="heart">💗</div>
+
+        <h1>Your Little Profile</h1>
+
+        <p class="subtitle">
+            Here are your little answers 🌸
+        </p>
+
+        <div class="profile" id="profile"></div>
+
+        <div class="love-message">
+
+            💕 <strong>One little thing...</strong>
+
+            <br><br>
+
+            Thank you for sharing your little world with me. ❤️
+
+        </div>
+
+        <button class="whatsapp" onclick="sendWhatsApp()">
+            💌 Send My Answers on WhatsApp
+        </button>
+
+        <button class="restart" onclick="restart()">
+            🔄 Start Again
+        </button>
+
+        <p class="small">
+            WhatsApp will open with your answers ready to send.
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   QUESTIONS
+========================================================= */
+
+const questions = [
+
+    {
+        number: 1,
+        question: "What is your favorite type of flower? 🌸",
+        type: "text"
+    },
+
+    {
+        number: 2,
+        question: "What do you think about me? 💕",
+        type: "text"
+    },
+
+    {
+        number: 3,
+        question: "What kind of gift are you expecting from me for our anniversary? 🎁",
+        type: "text"
+    },
+
+    {
+        number: 4,
+        question: "What kind of outfit do you like wearing the most? 👗",
+        type: "text"
+    },
+
+    {
+        number: 5,
+        question: "When do you think you would like to get married? 💍",
+        type: "text"
+    },
+
+    {
+        number: 6,
+        question: "Which country would you most like to visit with me? ✈️",
+        type: "text"
+    },
+
+    {
+        number: 7,
+        question: "Which is your favorite photo of the two of us in your gallery? 📸",
+        type: "photo"
+    },
+
+    {
+        number: 8,
+        question: "Which is the most beautiful photo of yourself in your gallery? 🌷",
+        type: "photo"
+    },
+
+    {
+        number: 9,
+        question: "How much do you love me? ❤️",
+        type: "love"
+    }
+
+];
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentQuestion = 0;
+
+let answers = [];
+
+let photoData = {
+    photo7: null,
+    photo8: null
+};
+
+
+/* =========================================================
+   START
+========================================================= */
+
+function startQuiz() {
+
+    currentQuestion = 0;
+
+    answers = [];
+
+    photoData = {
+        photo7: null,
+        photo8: null
+    };
+
+    document.getElementById("home")
+        .classList.add("hidden");
+
+    document.getElementById("result")
+        .classList.add("hidden");
+
+    document.getElementById("quiz")
+        .classList.remove("hidden");
+
+    showQuestion();
+}
+
+
+/* =========================================================
+   SHOW QUESTION
+========================================================= */
+
+function showQuestion() {
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("questionNumber")
+        .innerText =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+    document.getElementById("question")
+        .innerText = q.question;
+
+    const progress =
+        (currentQuestion / questions.length) * 100;
+
+    document.getElementById("progress")
+        .style.width = progress + "%";
+
+    const warning =
+        document.getElementById("warning");
+
+    warning.style.display = "none";
+
+    warning.innerText = "";
+
+    const area =
+        document.getElementById("answerArea");
+
+    area.innerHTML = "";
+
+
+    /* ================= TEXT ================= */
+
+    if (q.type === "text") {
+
+        const input =
+            document.createElement("input");
+
+        input.type = "text";
+
+        input.placeholder =
+            "Write your answer here... 💕";
+
+        input.value =
+            answers[currentQuestion] || "";
+
+        input.oninput = function() {
+
+            answers[currentQuestion] =
+                input.value;
+
+        };
+
+        area.appendChild(input);
+    }
+
+
+    /* ================= PHOTO ================= */
+
+    if (q.type === "photo") {
+
+        const photoNumber =
+            q.number;
+
+        const photoKey =
+            photoNumber === 7
+            ? "photo7"
+            : "photo8";
+
+        const uploadBox =
+            document.createElement("div");
+
+        uploadBox.className =
+            "upload-box";
+
+        uploadBox.innerHTML = `
+
+            <div class="upload-icon">
+                📸
+            </div>
+
+            <div class="upload-text">
+                Choose your favorite photo
+                from your gallery.
+            </div>
+
+            <label class="upload-button">
+
+                Choose Photo 💗
+
+                <input
+                    type="file"
+                    class="file-input"
+                    accept="image/*"
+                    id="photoInput"
+                >
+
+            </label>
+
+            <div
+                class="photo-preview"
+                id="photoPreview">
+
+                <img id="previewImage">
+
+                <div
+                    class="photo-name"
+                    id="photoName">
+                </div>
+
+            </div>
+
+        `;
+
+        area.appendChild(uploadBox);
+
+
+        const input =
+            document.getElementById("photoInput");
+
+        const preview =
+            document.getElementById("photoPreview");
+
+        const image =
+            document.getElementById("previewImage");
+
+        const name =
+            document.getElementById("photoName");
+
+
+        /* Show previously selected photo */
+
+        if (photoData[photoKey]) {
+
+            preview.style.display =
+                "block";
+
+            image.src =
+                photoData[photoKey].data;
+
+            name.innerText =
+                photoData[photoKey].name;
+        }
+
+
+        input.addEventListener(
+            "change",
+            function() {
+
+                const file =
+                    input.files[0];
+
+                if (!file) {
+                    return;
+                }
+
+                const reader =
+                    new FileReader();
+
+                reader.onload =
+                    function(event) {
+
+                        photoData[photoKey] = {
+
+                            data:
+                                event.target.result,
+
+                            name:
+                                file.name
+
+                        };
+
+                        preview.style.display =
+                            "block";
+
+                        image.src =
+                            event.target.result;
+
+                        name.innerText =
+                            file.name;
+
+                    };
+
+                reader.readAsDataURL(file);
+
+            }
+        );
+    }
+
+
+    /* ================= LOVE ================= */
+
+    if (q.type === "love") {
+
+        const loveBox =
+            document.createElement("div");
+
+        loveBox.className =
+            "love-box";
+
+        loveBox.innerHTML = `
+
+            <div>
+                How much do you love me? ❤️
+            </div>
+
+            <div
+                class="love-percent"
+                id="sliderValue">
+                100%
+            </div>
+
+            <input
+                type="range"
+                min="0"
+                max="100"
+                value="${answers[currentQuestion] || 100}"
+                class="love-slider"
+                id="loveSlider">
+
+            <div class="slider-label">
+                Move the slider... ❤️
+            </div>
+
+        `;
+
+        area.appendChild(loveBox);
+
+
+        const slider =
+            document.getElementById("loveSlider");
+
+        const value =
+            document.getElementById("sliderValue");
+
+
+        slider.oninput =
+            function() {
+
+                value.innerText =
+                    slider.value + "%";
+
+                answers[currentQuestion] =
+                    slider.value + "%";
+
+            };
+
+
+        if (!answers[currentQuestion]) {
+
+            answers[currentQuestion] =
+                "100%";
+        }
+    }
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextQuestion() {
+
+    const q =
+        questions[currentQuestion];
+
+    const warning =
+        document.getElementById("warning");
+
+
+    /* TEXT */
+
+    if (q.type === "text") {
+
+        if (
+            !answers[currentQuestion] ||
+            answers[currentQuestion].trim() === ""
+        ) {
+
+            warning.innerText =
+                "Please answer this question first 💕";
+
+            warning.style.display =
+                "block";
+
+            return;
+        }
+    }
+
+
+    /* PHOTO */
+
+    if (q.type === "photo") {
+
+        const photoKey =
+            q.number === 7
+            ? "photo7"
+            : "photo8";
+
+        if (!photoData[photoKey]) {
+
+            warning.innerText =
+                "Please choose a photo first 📸💕";
+
+            warning.style.display =
+                "block";
+
+            return;
+        }
+
+        answers[currentQuestion] =
+            photoData[photoKey].name;
+    }
+
+
+    /* LOVE */
+
+    if (q.type === "love") {
+
+        if (answers[currentQuestion] !== "100%") {
+
+            warning.innerText =
+                "Hmm... only 100% is accepted here. ❤️😌";
+
+            warning.style.display =
+                "block";
+
+            return;
+        }
+    }
+
+
+    /* NEXT */
+
+    if (
+        currentQuestion <
+        questions.length - 1
+    ) {
+
+        currentQuestion++;
+
+        showQuestion();
+
+    } else {
+
+        showResult();
+    }
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+function previousQuestion() {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        showQuestion();
+
+    }
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+function showResult() {
+
+    document.getElementById("quiz")
+        .classList.add("hidden");
+
+    document.getElementById("result")
+        .classList.remove("hidden");
+
+    const profile =
+        document.getElementById("profile");
+
+    profile.innerHTML = "";
+
+
+    questions.forEach(
+        function(q, index) {
+
+            if (q.type === "photo") {
+
+                const photoKey =
+                    q.number === 7
+                    ? "photo7"
+                    : "photo8";
+
+                const photo =
+                    photoData[photoKey];
+
+                const item =
+                    document.createElement("div");
+
+                item.className =
+                    "profile-item";
+
+                item.innerHTML = `
+
+                    <strong>
+                        ${q.question}
+                    </strong>
+
+                    <div class="result-photo">
+
+                        <img
+                            src="${photo.data}"
+                            alt="Selected photo">
+
+                    </div>
+
+                `;
+
+                profile.appendChild(item);
+
+            }
+
+            else {
+
+                const item =
+                    document.createElement("div");
+
+                item.className =
+                    "profile-item";
+
+                item.innerHTML = `
+
+                    <strong>
+                        ${q.question}
+                    </strong>
+
+                    <br>
+
+                    ${answers[index]}
+
+                `;
+
+                profile.appendChild(item);
+            }
+
+        }
+    );
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+function sendWhatsApp() {
+
+    /*
+       Sri Lankan number:
+       0740275505
+       International format:
+       94740275505
+    */
+
+    const phoneNumber =
+        "94740275505";
+
+
+    let message =
+        "💕 HER LITTLE WORLD — HER ANSWERS 💕\n\n";
+
+
+    questions.forEach(
+        function(q, index) {
+
+            let questionText =
+                q.question
+                .replace(/^\d+\.\s*/, "");
+
+
+            if (q.type === "photo") {
+
+                const photoKey =
+                    q.number === 7
+                    ? "photo7"
+                    : "photo8";
+
+                const photo =
+                    photoData[photoKey];
+
+                message +=
+                    `${q.number}. ${questionText}\n`;
+
+                message +=
+                    `Photo selected: ${photo.name}\n\n`;
+
+            }
+
+            else {
+
+                message +=
+                    `${q.number}. ${questionText}\n`;
+
+                message +=
+                    `Answer: ${answers[index]}\n\n`;
+            }
+
+        }
+    );
+
+
+    message +=
+        "❤️ End of my little answers ❤️";
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        phoneNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+}
+
+
+/* =========================================================
+   RESTART
+========================================================= */
+
+function restart() {
+
+    document.getElementById("result")
+        .classList.add("hidden");
+
+    document.getElementById("home")
+        .classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
